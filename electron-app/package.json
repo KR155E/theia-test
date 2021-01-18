@@ -1,0 +1,20 @@
+{
+  "private": true,
+  "name": "electron-app",
+  "version": "0.0.0",
+  "main": "src-gen/frontend/electron-main.js",
+  "dependencies": {
+    "@theia/core": "latest",
+    "@theia/electron": "latest",
+    "theia-test": "1.0.0"
+  },
+  "devDependencies": {
+    "@theia/cli": "latest"
+  },
+  "scripts": {
+    "all": "cd .. && yarn && yarn theia rebuild:electron && cd electron-app && yarn electron-rebuild && yarn start",
+    "prepare": "theia build --mode development",
+    "start": "theia start",
+    "watch": "theia build --watch --mode development"
+  }
+}
