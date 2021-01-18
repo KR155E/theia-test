@@ -16,5 +16,8 @@
     "prepare": "theia build --mode development",
     "start": "theia start",
     "watch": "theia build --watch --mode development"
+  },
+  "theia": {
+    "target": "electron"
   }
 }
