@@ -2,7 +2,7 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "all": "yarn && yarn rebuild:electron && cd ../electron-app && yarn start",
+    "all": "yarn && yarn rebuild:electron && cd electron-app && yarn start",
     "prepare": "lerna run prepare",
     "rebuild:browser": "theia rebuild:browser",
     "rebuild:electron": "theia rebuild:electron && cd theia-test && yarn theia rebuild:electron"
