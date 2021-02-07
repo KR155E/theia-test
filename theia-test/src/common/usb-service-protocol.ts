@@ -1,8 +1,12 @@
-import { Event } from "@theia/core";
+import { JsonRpcServer } from "@theia/core";
 import { Device } from "usb";
-export const workspacePath = '/services/usb';
 
-export const UsbService = Symbol('UsbService');
-export interface UsbService {
-    onDeviceConnected: Event<Device>;
+export const USB_SERVICE_PATH = "/ves/services/usb";
+export const UsbServiceServer = Symbol("UsbServiceServer");
+
+export interface UsbServiceClient {
+    onAttach(device: Device): void;
+}
+
+export interface UsbServiceServer extends JsonRpcServer<UsbServiceClient> {
 }

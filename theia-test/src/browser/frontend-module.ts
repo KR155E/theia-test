@@ -1,14 +1,17 @@
+import { ContainerModule } from "inversify";
 import { CommandContribution } from "@theia/core";
 import { WebSocketConnectionProvider } from "@theia/core/lib/browser";
-import { ContainerModule } from "inversify";
-import { UsbService, workspacePath } from "../common/usb-service-protocol";
-import { UsbEventContribution } from "./usb-event-contribution";
+import { UsbServiceClient } from "./usb-service-client";
+import { UsbServiceContribution } from "./usb-service-contribution";
+import { UsbServiceServer, USB_SERVICE_PATH } from "../common/usb-service-protocol";
 
-export default new ContainerModule((bind) => {
-  bind(UsbService).toDynamicValue(ctx => {
+export default new ContainerModule(bind => {
+  bind(UsbServiceServer).toDynamicValue(ctx => {
     const provider = ctx.container.get(WebSocketConnectionProvider);
-    return provider.createProxy<UsbService>(workspacePath);
+    return provider.createProxy<UsbServiceServer>(USB_SERVICE_PATH);
   }).inSingletonScope();
 
-  bind(CommandContribution).to(UsbEventContribution);
+  bind(CommandContribution).to(UsbServiceContribution);
+
+  bind(UsbServiceClient).toSelf();
 });
