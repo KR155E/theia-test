@@ -1,6 +1,6 @@
 # theia-test
 
-Theia test repository
+Theia test demonstrating backend events. Plug in an USB device to see an alert pop up.
 
 ## Getting started
 
@@ -17,45 +17,11 @@ Install yarn.
 
     npm install -g yarn
 
-## Running the browser example
-
-    yarn
-    yarn rebuild:browser
-    cd browser-app
-    yarn start
-
-Open http://localhost:3000 in the browser.
-
 ## Running the Electron example
 
-    yarn
-    yarn rebuild:electron
-    cd electron-app
-    yarn start
-
-## Developing with the browser example
-
-Start watching of theia-test.
-
-    cd theia-test
-    yarn watch
-
-Start watching of the browser example.
-
-    yarn rebuild:browser
-    cd browser-app
-    yarn watch
-
-Launch `Start Browser Backend` configuration from VS code.
-
-Open http://localhost:3000 in the browser.
+    yarn all
 
 ## Developing with the Electron example
-
-Start watching of theia-test.
-
-    cd theia-test
-    yarn watch
 
 Start watching of the electron example.
 
